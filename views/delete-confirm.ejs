@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Confirmation Example</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<div class="message-box" id="messageBox">
+    <div class="message-box-content">
+        <h2 >Thank You</h2>
+        <p id="messageText">Your post deleted successfully</p>
+        <form action="/delete/<%= post._id %>" method="POST">
+          <button id="messageOk" >Ok</button>
+        </form>
+    </div>
+</div>

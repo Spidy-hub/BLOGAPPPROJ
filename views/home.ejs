@@ -1,0 +1,38 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <%- include('partials/header'); -%>
+        
+        <% if (posts.length > 0) { %>
+            <% posts.forEach(post => { %>
+                <div class="post">
+                    <img class="postImg" src="<%= post.photo %>" alt="<%= post.title %> photo" />
+                    <div className="postInfo">
+                        <div className="postCats">  
+                            <p class="postCat">Created by: <%= post.name %></p>
+                            <p class="postDate"><small>Posted at: <%= post.createdAt.toLocaleString() %></small></p>
+                        </div>
+                        <h2 class="postTitle"><%= post.title %></h2>
+                        <% if (post.content.split(' ').length > 18) { %>
+                            <p class="postDesc">
+                                <%= post.content.split(' ').slice(0, 18).join(' ') %>
+                                <a href="/post/<%= post._id %>">Read More..</a>
+                            </p>
+                        <% } else { %>
+                            <p class="postDesc"><%= post.content %></p>
+                        <% } %>
+                    </div>
+                    <a class="btnhome" href='/update/<%= post._id %>'>Update</a>
+                    <a class="btnhome" href="/delete/<%= post._id %>">Delete</a>
+                </div>
+            <% }) %> 
+        <% } else { %>
+            <p class="nopost">No posts available.</p>
+        <% } %>
+
+        <%- include('partials/footer'); -%>
+    </body>
+    </html> 

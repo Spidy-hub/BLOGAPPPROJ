@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Post Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header'); -%>
+
+    <div class="postmain">
+        <img class="post-image" src="/<%= post.photo %>"  alt="<%= post.title %> photo" />
+        <h2 class="post-title"><%= post.title %></h2>
+        <p class="post-content"><%= post.content %></p>
+        <p class="post-created">Created by: <%= post.name %></p>
+        <p class="post-time"><small>Posted at: <%= post.createdAt.toLocaleString() %></small></p>
+    </div>
+
+    <%- include('partials/footer'); -%>
+</body>
+</html>
+    

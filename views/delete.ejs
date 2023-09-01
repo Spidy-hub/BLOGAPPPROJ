@@ -1,0 +1,22 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Confirmation Example</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div class="confirm-box" id="confirmBox">
+    <div class="confirm-box-content">
+      <p>Are you sure you want to delete?</p>
+      <div class="confirm-box-buttons">
+        <a href="/delete-confirm/<%= post._id %>"><button id="confirmYes">Yes</button></a>
+        <a href="/"><button id="confirmNo">No</button></a>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

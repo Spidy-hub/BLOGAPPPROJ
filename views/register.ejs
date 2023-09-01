@@ -1,0 +1,25 @@
+
+<body>
+
+    <%- include('partials/header'); -%>
+
+      <div class="maincontainer">
+        <form action="/register" method="post">
+            <h2>Register</h2>
+            <label for="name">Name</label>
+            <input type="text" name="name" placeholder="Enter Name" />
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter Email" />
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Enter Password" />
+            <label for="password">Confirm Password</label>
+            <input type="confirm-password" name="cpassword" placeholder="Enter Confirm Password" />
+            <button>Register</button>
+          </form>
+        <p><a href="/login">Already have an account?</a></p>
+      </div>
+
+  <%- include('partials/footer'); -%>
+
+</body>
+</html>
