@@ -39,7 +39,7 @@ module.exports.register =  async(req, res) =>{
                 if(password === cpassword){
                     const salt = await bcrypt.genSalt()
                     const hashPassword = await bcrypt.hash(password,salt)
-                    const token = createToke(userExist._id);
+                    const token = createToke(userExist ? userExist.id : null);
                     res.cookie('jwt', token, { httpOnly: true, maxAge: maxage * 1000 })                    
                     const user = new User ({
                         name: name,
@@ -71,7 +71,7 @@ module.exports.login = async(req, res) => {
             if(userExist != null){
                 const isMatch = await bcrypt.compare(password, userExist.password)
                 if((userExist.email === email) && isMatch){
-                    const token = createToke(userExist._id);
+                    const token = createToke(userExist ? userExist.id : null);
                     res.cookie('jwt', token, { httpOnly: true, maxAge: maxage * 1000 })
                     res.redirect('/')
                     // res.status(200).json({ userExist: userExist._id });
